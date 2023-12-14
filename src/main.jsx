@@ -6,4 +6,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
+  //Because of this strictMode our responses will get 2times
 );

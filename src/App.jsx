@@ -8,6 +8,8 @@ import { getApiConfiguration } from "./store/homeSlice";
 
 function App() {
   const dispatch = useDispatch();
+  const { url } = useSelector((state) => state.home);
+  //using useSelector getting the state values from home from store.js
 
   useEffect(() => {
     apiTesting();
@@ -16,11 +18,12 @@ function App() {
   const apiTesting = () => {
     fetchDataFromApi("/movie/popular").then((response) => {
       console.log(response);
+      //dispatching or setting the value of state of given function to response
       dispatch(getApiConfiguration(response));
     });
   };
 
-  return <h1>Hello WORLD</h1>;
+  return <h1>{url?.total_pages}</h1>;
 }
 
 export default App;
